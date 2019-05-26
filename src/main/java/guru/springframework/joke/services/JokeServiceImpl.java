@@ -1,6 +1,6 @@
 package guru.springframework.joke.services;
 
-import guru.springframework.joke.data.ChuckNorrisQuotesLocal;
+import guru.springframework.joke.repository.JokeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 public class JokeServiceImpl implements JokeService {
 
     @Autowired
-    private ChuckNorrisQuotesLocal chuckNorrisQuotesLocal;
+    private JokeRepository jokeRepository;
 
     @Override
     public String getJoke() {
-        return chuckNorrisQuotesLocal.getRandomQuote();
+        return jokeRepository.getJoke();
     }
 }
